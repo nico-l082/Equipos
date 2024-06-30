@@ -1,0 +1,49 @@
+Para realizar una conexión con la base de datos se debe especificar en la linea de código el nombre del servidor, el nombre dela base de datos y el usuario con su contraseña. Ademas de crear una conexión con la base de datos, se abre esa conexión y se cierra una vez utilizada.
+Durante la conexión abierta se pueden realizar consultas para tener los datos queridos.
+Las Lineas de códigos:
+Cadena de conexión a la base de datos
+
+string connectionString = "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;";
+Crear la conexión
+            
+using (SqlConnection connection = new SqlConnection(connectionString))
+
+Abrir la conexión
+
+connection.Open();
+
+
+
+Crear el comando SQL
+
+SqlCommand command = new SqlCommand(query, connection);
+
+
+
+Ejecutar la consulta y obtener los resultados
+ 
+SqlDataReader reader = command.ExecuteReader();
+
+                    
+Leer los resultados
+
+while (reader.Read())
+ 
+                   {
+ Console.WriteLine($"{reader[0]}, {reader[1]}, {reader[2]}");
+  }
+
+
+                   
+Cerrar el lector
+
+reader.Close();
+
+Cerrar la conexión
+
+connection.Close();
+
+
+
+
+
