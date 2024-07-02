@@ -16,8 +16,19 @@ namespace Equipos.Models
             int golesEquipo1 = rand.Next(0, 5);
             int golesEquipo2 = rand.Next(0, 5);
 
-            return 
-                $"{equipo1.Nombre} {golesEquipo1} - {golesEquipo2} {equipo2.Nombre}";
+            if (golesEquipo1 > golesEquipo2)
+            {
+                return
+                    $"{equipo1.Nombre} {golesEquipo1} - {golesEquipo2} {equipo2.Nombre}";
+            }else if (golesEquipo1 < golesEquipo2)
+            {
+                return
+                    $"{equipo2.Nombre} {golesEquipo2} - {golesEquipo1} {equipo1.Nombre}";
+            }else
+            {
+                return
+                    $"Empate.";
+            }  
         }
     }
 }

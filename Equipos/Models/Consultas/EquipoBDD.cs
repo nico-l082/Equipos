@@ -11,13 +11,13 @@ namespace Equipos.Models.Consultas
     public static class EquipoBDD
     {
 
-        private static string connectionString = "Data Source=Nico_Desktop;Initial Catalog=terciario;user=sa;password=Malg123";
+        private static string connectionString = "Data Source=SQLSERVER\\SQLSERVER;Initial Catalog=bdg4;user=bdg4;password=bdg4";
 
         public static List<string> getEquipo()
         {
             List<string> equipos = new List<string>();
 
-            string query = "select * from dbo.equipos";
+            string query = "select * from equipos";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -63,7 +63,7 @@ namespace Equipos.Models.Consultas
                         string provincia = reader.GetString(6);
 
                         string jugador = $"\n Nombre: {nombre}\n DNI: {dni}\n Fecha de Nacimiento: {fecNac.ToString("yyyy-MM-dd")}" +
-                                 $"\n Equipo: {equipo}\n Departamento: {departamento.ToLower()}\n Provincia: {provincia}\n";
+                                 $"\n Equipo: {equipo}\n Partido: {departamento.ToLower()}\n Provincia: {provincia}\n";
 
                         jugadores.Add(jugador);
                         

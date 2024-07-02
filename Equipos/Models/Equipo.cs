@@ -27,9 +27,11 @@ namespace Equipos.Models
         {
             Jugadores.Remove(jugador);
         }
+        /*
         public void CambiarEntrenador(string nuevoEntrenador)
         {
             Entrenador = nuevoEntrenador;
         }
+        */
     }
 }
